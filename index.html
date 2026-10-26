@@ -1,1 +1,272 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Academic portfolio of Pranta Bhowmik, MSc student in Georesources Management at RWTH Aachen University.">
+  <title>Pranta Bhowmik | Academic Portfolio</title>
+  <style>
+    :root {
+      --navy: #12345a;
+      --blue: #2167b2;
+      --pale: #edf4fc;
+      --text: #26364a;
+      --muted: #64748b;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background: #fff;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(1080px, 90%); margin: auto; }
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e5eaf1;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand { font-weight: 800; color: var(--navy); font-size: 19px; }
+    .navlinks { display: flex; flex-wrap: wrap; gap: 19px; font-size: 14px; }
+    .navlinks a { color: var(--text); }
+    .hero {
+      background: linear-gradient(130deg, #f0f6ff, #fff 75%);
+      padding: 92px 0 85px;
+    }
+    .eyebrow {
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    h1 {
+      color: var(--navy);
+      font-size: clamp(38px, 6vw, 62px);
+      line-height: 1.12;
+      margin: 16px 0;
+    }
+    .hero p { max-width: 680px; font-size: 18px; color: #4c5e73; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      display: inline-block;
+      padding: 11px 19px;
+      border-radius: 7px;
+      font-weight: 700;
+      border: 1px solid var(--blue);
+    }
+    .primary { color: #fff; background: var(--blue); }
+    .secondary { color: var(--blue); background: #fff; }
+    section { padding: 65px 0; scroll-margin-top: 80px; }
+    section:nth-of-type(even) { background: #f8fafd; }
+    h2 { color: var(--navy); font-size: 30px; margin: 0 0 22px; }
+    .lead { max-width: 780px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+      gap: 19px;
+    }
+    .card {
+      border: 1px solid #e1e8f1;
+      border-radius: 12px;
+      padding: 23px;
+      background: #fff;
+    }
+    .card h3 { color: var(--navy); margin-top: 0; }
+    .tag {
+      display: inline-block;
+      background: var(--pale);
+      color: var(--blue);
+      padding: 4px 10px;
+      margin: 4px 4px 4px 0;
+      border-radius: 20px;
+      font-size: 13px;
+    }
+    footer { background: var(--navy); color: #eaf2fc; padding: 27px 0; }
+    footer a { color: #fff; }
+    @media (max-width: 650px) {
+      nav { align-items: flex-start; flex-direction: column; padding: 15px 0; }
+      .navlinks { gap: 10px 15px; }
+      .hero { padding: 60px 0; }
+      section { padding: 48px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a class="brand" href="#home">PRANTA BHOWMIK</a>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero" id="home">
+      <div class="container">
+        <div class="eyebrow">Geoscience · GIS · Remote Sensing</div>
+        <h1>Pranta Bhowmik</h1>
+        <p>
+          MSc student in Georesources Management at RWTH Aachen University,
+          Germany. Interested in geospatial analysis, environmental change,
+          hydrogeology and data-driven approaches to Earth science.
+        </p>
+        <div class="buttons">
+          <a class="btn primary" href="#research">Explore My Research</a>
+          <a class="btn secondary" href="#contact">Contact Me</a>
+        </div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="container">
+        <h2>About Me</h2>
+        <p class="lead">
+          I am a geoscience researcher with an academic background in Geography
+          and Environment and current MSc studies in Georesources Management
+          at RWTH Aachen University. My work focuses on understanding
+          environmental processes through GIS, remote sensing and spatial
+          modelling.
+        </p>
+        <p>
+          I enjoy combining geospatial datasets, analytical methods and
+          scientific research to investigate environmental challenges and
+          support evidence-based decision-making.
+        </p>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <h2>Research Interests</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>GIS & Remote Sensing</h3>
+            <p>Spatial analysis, satellite imagery, land use and land cover
+            change, and environmental monitoring.</p>
+          </div>
+          <div class="card">
+            <h3>Hydrogeology</h3>
+            <p>Groundwater potential mapping, groundwater sustainability
+            and GIS-based multi-criteria analysis.</p>
+          </div>
+          <div class="card">
+            <h3>Flood Risk Assessment</h3>
+            <p>Flood hazard and vulnerability mapping using GIS, AHP
+            and machine learning approaches.</p>
+          </div>
+          <div class="card">
+            <h3>Environmental Quality</h3>
+            <p>Spatial and temporal analysis of environmental indicators
+            using geospatial and statistical methods.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <h2>Publications & Manuscripts</h2>
+        <div class="card">
+          <h3>Assessing Groundwater Sustainability in Intensive Agricultural Zones: A GIS-AHP Approach in Kishoreganj District, Bangladesh</h3>
+          <p>Research manuscript submitted to <em>Discover Geoscience</em>.</p>
+          <p><strong>Status:</strong> Under editorial process. Update this status when it changes.</p>
+        </div>
+        <div class="card" style="margin-top:18px">
+          <h3>Urbanization and Environmental Transformation: A Decadal Analysis of Land Use and Land Cover Changes (2014–2024) in Kishoreganj Sadar Upazila, Bangladesh</h3>
+          <p>Research manuscript submitted to <em>Applied Geomatics</em>.</p>
+          <p><strong>Status:</strong> Under peer review (update as appropriate).</p>
+        </div>
+        <p style="color:#64748b;font-size:14px">
+          Please update manuscript statuses and add DOI or publisher links
+          when available.
+        </p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2>Selected Research Projects</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Groundwater Potential Mapping</h3>
+            <p>GIS-AHP analysis of groundwater potential using thematic
+            environmental and terrain layers in Bangladesh.</p>
+            <span class="tag">GIS-AHP</span>
+            <span class="tag">Hydrogeology</span>
+          </div>
+          <div class="card">
+            <h3>Flood Risk Mapping</h3>
+            <p>Integrated flood hazard and vulnerability assessment using
+            GIS-based methods and machine learning models.</p>
+            <span class="tag">Remote Sensing</span>
+            <span class="tag">Machine Learning</span>
+          </div>
+          <div class="card">
+            <h3>Environmental Quality Assessment</h3>
+            <p>Spatio-temporal analysis of environmental indicators using
+            satellite-derived indices and multi-criteria GIS techniques.</p>
+            <span class="tag">Landsat</span>
+            <span class="tag">Spatial Analysis</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2>Technical Skills</h2>
+        <span class="tag">ArcGIS Pro</span>
+        <span class="tag">ArcGIS Desktop</span>
+        <span class="tag">Remote Sensing</span>
+        <span class="tag">R</span>
+        <span class="tag">Python</span>
+        <span class="tag">GIS-AHP</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Spatial Modelling</span>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>For research collaboration and academic enquiries, feel free to connect.</p>
+        <p>
+          <a href="https://github.com/pranta98-pb">GitHub Profile</a>
+          &nbsp; · &nbsp;
+          <a href="https://www.linkedin.com/">LinkedIn</a>
+        </p>
+        <p style="color:#64748b;font-size:14px">
+          Add your professional email address and personal LinkedIn profile URL here.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Pranta Bhowmik · Academic Portfolio
+    </div>
+  </footer>
+</body>
+</html>
+
