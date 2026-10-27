@@ -9,32 +9,56 @@
 
 <style>
 :root {
-  --navy: #15365b;
-  --blue: #2469ad;
+  --navy: #17365d;
+  --blue: #2563a6;
+  --teal: #087e8b;
   --light: #edf4fc;
   --text: #29384b;
   --muted: #64748b;
-  --border: #e1e8f0;
+  --border: #dce5ef;
+  --white: #ffffff;
 }
+
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
   line-height: 1.75;
+  background: white;
 }
-a { color: var(--blue); text-decoration: none; }
-a:hover { text-decoration: underline; }
-.container { width: min(1080px, 90%); margin: auto; }
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--teal);
+  text-decoration: underline;
+}
+
+.container {
+  width: min(1120px, 91%);
+  margin: auto;
+}
+
+/* NAVIGATION */
 
 header {
   position: sticky;
   top: 0;
-  z-index: 20;
-  background: #fff;
+  z-index: 100;
+  background: rgba(255,255,255,0.97);
   border-bottom: 1px solid var(--border);
 }
+
 nav {
   min-height: 72px;
   display: flex;
@@ -42,73 +66,119 @@ nav {
   justify-content: space-between;
   gap: 20px;
 }
+
 .brand {
   font-weight: 800;
+  font-size: 18px;
   color: var(--navy);
   white-space: nowrap;
 }
+
 .navlinks {
   display: flex;
   align-items: center;
-  gap: 18px;
+  flex-wrap: wrap;
+  gap: 17px;
   font-size: 14px;
 }
-.navlinks > a { color: var(--text); }
-.dropdown { position: relative; }
+
+.navlinks > a,
+.dropdown summary {
+  color: var(--text);
+}
+
+.dropdown {
+  position: relative;
+}
+
 .dropdown summary {
   cursor: pointer;
   list-style: none;
-  color: var(--text);
   white-space: nowrap;
 }
-.dropdown summary::-webkit-details-marker { display: none; }
-.dropdown summary:after { content: " ▾"; }
+
+.dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.dropdown summary::after {
+  content: " ▾";
+  color: var(--teal);
+}
+
 .submenu {
   display: none;
   position: absolute;
   top: 30px;
   left: 0;
-  min-width: 240px;
-  background: white;
+  min-width: 245px;
   padding: 10px;
+  background: white;
   border: 1px solid var(--border);
   border-radius: 10px;
-  box-shadow: 0 10px 30px #15365b18;
+  box-shadow: 0 12px 30px #17365d18;
 }
+
 .dropdown[open] .submenu {
   display: grid;
   gap: 4px;
 }
+
 .submenu a {
-  padding: 8px;
+  padding: 8px 10px;
   border-radius: 6px;
 }
+
 .submenu a:hover {
   background: var(--light);
   text-decoration: none;
 }
 
+/* HOME */
+
 .hero {
-  background: linear-gradient(125deg, #edf4fc, #fff 80%);
-  padding: 95px 0 85px;
+  background: linear-gradient(125deg, #edf4fc 0%, #ffffff 85%);
+  padding: 80px 0;
 }
-.eyebrow {
-  color: var(--blue);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 290px;
+  align-items: center;
+  gap: 55px;
 }
-h1 {
-  font-size: clamp(40px, 6vw, 65px);
-  line-height: 1.15;
+
+.hero h1 {
   color: var(--navy);
-  margin: 16px 0;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.15;
+  margin: 0 0 20px;
 }
-h2 { font-size: 30px; color: var(--navy); margin: 0 0 22px; }
-h3 { color: var(--navy); line-height: 1.45; }
-.hero p { max-width: 740px; font-size: 18px; color: #506178; }
-.buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 25px; }
+
+.hero p {
+  max-width: 720px;
+  font-size: 18px;
+  color: #506178;
+}
+
+.profile-photo {
+  width: 250px;
+  height: 280px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 18px;
+  border: 5px solid white;
+  box-shadow: 0 12px 35px #17365d20;
+  justify-self: center;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
 .btn {
   display: inline-block;
   padding: 11px 18px;
@@ -116,50 +186,181 @@ h3 { color: var(--navy); line-height: 1.45; }
   font-weight: 700;
   border: 1px solid var(--blue);
 }
-.primary { background: var(--blue); color: white; }
-.secondary { color: var(--blue); background: white; }
 
-section { padding: 65px 0; }
-section:nth-of-type(even) { background: #f8fafd; }
-.intro { max-width: 800px; }
+.primary {
+  background: var(--blue);
+  color: white;
+}
+
+.primary:hover {
+  background: var(--navy);
+  color: white;
+  text-decoration: none;
+}
+
+.secondary {
+  color: var(--blue);
+  background: white;
+}
+
+.secondary:hover {
+  background: var(--light);
+  text-decoration: none;
+}
+
+/* SECTIONS */
+
+section {
+  padding: 62px 0;
+}
+
+section:nth-of-type(even) {
+  background: #f8fafd;
+}
+
+h2 {
+  font-size: 30px;
+  color: var(--teal);
+  margin: 0 0 24px;
+  line-height: 1.3;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 3px;
+  background: var(--blue);
+  margin-top: 12px;
+  border-radius: 4px;
+}
+
+h3 {
+  color: var(--navy);
+  line-height: 1.45;
+}
+
+.intro {
+  max-width: 850px;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
+
 .card {
   background: white;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 13px;
   padding: 23px;
   margin-bottom: 18px;
+  box-shadow: 0 4px 16px #17365d08;
 }
-.card h3 { margin-top: 0; }
-.meta { color: var(--muted); font-size: 14px; }
+
+.card h3 {
+  margin-top: 0;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 14px;
+}
+
 .tag {
   display: inline-block;
-  background: var(--light);
-  color: var(--blue);
+  background: #e7f4f5;
+  color: #087e8b;
   border-radius: 20px;
   padding: 3px 10px;
   margin: 3px 4px 3px 0;
   font-size: 13px;
 }
-.subsection { padding-top: 35px; }
-footer { background: var(--navy); color: #eaf2fc; padding: 28px 0; }
-footer a { color: white; }
 
-@media (max-width: 800px) {
-  nav { align-items: flex-start; flex-direction: column; padding: 15px 0; }
-  .navlinks { flex-wrap: wrap; gap: 12px 16px; }
-  .submenu { position: static; box-shadow: none; margin-top: 8px; }
-  .hero { padding: 60px 0; }
-  section { padding: 48px 0; }
+.subsection {
+  padding-top: 30px;
+  scroll-margin-top: 100px;
+}
+
+.research-map {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: white;
+}
+
+.map-caption {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+footer {
+  background: var(--navy);
+  color: #eaf2fc;
+  padding: 28px 0;
+  text-align: center;
+}
+
+footer a {
+  color: white;
+}
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+  nav {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 14px 0;
+  }
+
+  .navlinks {
+    gap: 12px 16px;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .profile-photo {
+    grid-row: 1;
+    width: 190px;
+    height: 210px;
+  }
+
+  .hero {
+    padding: 48px 0;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  section {
+    padding: 45px 0;
+  }
+
+  .submenu {
+    position: static;
+    box-shadow: none;
+    margin-top: 8px;
+  }
 }
 </style>
 </head>
 
 <body>
+
 <header>
   <nav class="container">
     <a class="brand" href="#home">PRANTA BHOWMIK</a>
@@ -181,6 +382,8 @@ footer a { color: white; }
 
       <a href="#education">Education</a>
       <a href="#work">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#training">Training</a>
       <a href="#leadership">Leadership</a>
       <a href="#contact">Contact</a>
     </div>
@@ -188,29 +391,52 @@ footer a { color: white; }
 </header>
 
 <main>
+
 <!-- HOME -->
+
 <div class="hero" id="home">
-  <div class="container">
-    <div class="eyebrow">Geoscience · GIS · Remote Sensing</div>
-    <h1>Pranta Bhowmik</h1>
-    <p>
-      MSc student in Georesources Management at RWTH Aachen University,
-      Germany, with research experience in GIS, remote sensing,
-      hydrogeology, groundwater assessment, flood-risk mapping and
-      environmental quality assessment.
-    </p>
-    <div class="buttons">
-      <a class="btn primary" href="#current-research">Explore My Research</a>
-      <a class="btn secondary" href="CV_Pranta_Bhowmik.pdf" target="_blank">Download CV</a>
+  <div class="container hero-content">
+
+    <div>
+      <h1>Pranta Bhowmik</h1>
+
+      <p>
+        MSc student in Georesources Management at RWTH Aachen University,
+        Germany, with research experience in GIS, remote sensing,
+        hydrogeology, groundwater assessment, flood-risk mapping and
+        environmental quality assessment.
+      </p>
+
+      <div class="buttons">
+        <a class="btn primary" href="#current-research">
+          Explore My Research
+        </a>
+
+        <a class="btn secondary"
+           href="CV_Pranta_Bhowmik.pdf"
+           target="_blank" rel="noopener">
+          Download CV
+        </a>
+      </div>
+
+      <p class="meta">
+        Aachen, North Rhine-Westphalia, Germany
+      </p>
     </div>
-    <p class="meta">Aachen, North Rhine-Westphalia, Germany</p>
+
+    <img
+      class="profile-photo"
+      src="Pranta.jpeg"
+      alt="Portrait of Pranta Bhowmik">
   </div>
 </div>
 
 <!-- ABOUT -->
+
 <section id="about">
   <div class="container">
     <h2>About Me</h2>
+
     <p class="intro">
       I am an MSc student in Georesources Management at RWTH Aachen
       University, Germany, with a bachelor's background in Geography
@@ -219,6 +445,7 @@ footer a { color: white; }
       assessment, flood-risk mapping, environmental quality assessment
       and geospatial environmental modelling.
     </p>
+
     <p class="intro">
       My research applies GIS, remote sensing, spatial analysis,
       multi-criteria methods and data-driven approaches to investigate
@@ -230,52 +457,67 @@ footer a { color: white; }
 </section>
 
 <!-- EDUCATION -->
+
 <section id="education">
   <div class="container">
     <h2>Education</h2>
+
     <div class="card">
       <h3>MSc in Georesources Management</h3>
       <p>RWTH Aachen University, Aachen, Germany</p>
       <p class="meta">April 2026 – Present</p>
     </div>
+
     <div class="card">
       <h3>BSc in Geography and Environment</h3>
-      <p>Shahjalal University of Science and Technology (SUST), Sylhet, Bangladesh</p>
+      <p>
+        Shahjalal University of Science and Technology (SUST),
+        Sylhet, Bangladesh
+      </p>
       <p class="meta">2019–2024 · CGPA: 3.65/4.00</p>
     </div>
   </div>
 </section>
 
 <!-- RESEARCH -->
+
 <section id="research">
   <div class="container">
     <h2>Research</h2>
+
     <p class="intro">
       My research focuses on applying geospatial techniques to understand
       groundwater resources, environmental change and natural hazards.
     </p>
 
     <!-- CURRENT RESEARCH -->
+
     <div id="current-research" class="subsection">
       <h3>Current Research</h3>
+
       <div class="card">
         <span class="tag">Ongoing Research</span>
+
         <h3>
           Spatio-Temporal Assessment of Environmental Quality in
           Mymensingh District, Bangladesh Using Multi-Source Remote
           Sensing and GIS
         </h3>
+
         <p>
           This research investigates the spatial and temporal patterns
           of environmental quality in Mymensingh District, Bangladesh,
           using multi-source remote sensing data and GIS-based spatial
           analysis.
         </p>
+
         <p>
           <strong>Methodology:</strong> Principal Component Analysis (PCA),
           multi-source remote sensing and GIS techniques.
         </p>
+
         <p><strong>Research Focus:</strong></p>
+
         <span class="tag">PCA</span>
         <span class="tag">Remote Sensing</span>
         <span class="tag">GIS</span>
@@ -285,118 +527,190 @@ footer a { color: white; }
     </div>
 
     <!-- PUBLICATIONS -->
+
     <div id="publications" class="subsection">
       <h3>Publications</h3>
 
       <div class="card">
-        <p><strong>Bhowmik, P., Laskor, M. A. H., Bhowmik, A., &amp; Islam, M. M. (2026).</strong></p>
+        <p>
+          <strong>
+            Bhowmik, P., Laskor, M. A. H., Bhowmik, A., &amp;
+            Islam, M. M. (2026).
+          </strong>
+        </p>
+
         <p>
           Comparative assessment of flood risk using AHP and machine
           learning models in Kurigram District, Bangladesh.
         </p>
-        <p><em>Journal of Geospatial Science and Analytics, 2</em>(2), 159–186.</p>
+
+        <p>
+          <em>Journal of Geospatial Science and Analytics, 2</em>(2),
+          159–186.
+        </p>
+
         <a href="https://doi.org/10.58524/jgsa.v2i2.139"
-           target="_blank" rel="noopener">View publication and DOI ↗</a>
+           target="_blank" rel="noopener">
+          View publication and DOI ↗
+        </a>
       </div>
 
       <div class="card">
-        <p><strong>Bhowmik, P., Laskor, M. A. H., &amp; Islam, M. M. (2026).</strong></p>
+        <p>
+          <strong>
+            Bhowmik, P., Laskor, M. A. H., &amp; Islam, M. M. (2026).
+          </strong>
+        </p>
+
         <p>
           Geospatial analysis of urbanization and land use/land cover
           change in Kishoreganj Sadar Upazila, Bangladesh (2014–2024).
         </p>
+
         <p><em>Applied Geomatics, 18</em>, 159.</p>
+
         <a href="https://doi.org/10.1007/s12518-026-00811-1"
-           target="_blank" rel="noopener">View publication and DOI ↗</a>
+           target="_blank" rel="noopener">
+          View publication and DOI ↗
+        </a>
       </div>
     </div>
 
-    <!-- MANUSCRIPTS -->
+    <!-- MANUSCRIPT UNDER REVIEW -->
+
     <div id="under-review" class="subsection">
       <h3>Manuscripts Under Review</h3>
+
       <div class="card">
         <span class="tag">Peer Review</span>
+
         <h3>
           Assessing Groundwater Sustainability in Intensive Agricultural
           Zones: A GIS-AHP Approach in Kishoreganj District, Bangladesh
         </h3>
+
         <p class="meta">Submitted to Discover Geoscience</p>
+
         <p>
           This manuscript investigates groundwater potential and
           sustainability in intensive agricultural zones using GIS-based
           multi-criteria analysis and hydrogeological and environmental
           factors.
         </p>
-        <p class="meta">
-          Manuscript status should be updated when an official journal
-          decision or status change is received.
-        </p>
       </div>
     </div>
 
-    <!-- RESEARCH EXPERIENCE -->
+    <!-- RESEARCH EXPERIENCE AND MAPS -->
+
     <div id="research-experience" class="subsection">
       <h3>Research Experience</h3>
-      <div class="grid">
-        <div class="card">
-          <h3>Flood Risk Mapping</h3>
-          <p class="meta">May 2025 – February 2026</p>
-          <p>
-            Compared GIS-AHP and machine learning approaches to assess
-            and map flood-risk zones in Kurigram District, Bangladesh.
-          </p>
+
+      <div class="card">
+        <h3>Flood Risk Mapping — Kurigram District</h3>
+        <p class="meta">May 2025 – February 2026</p>
+
+        <p>
+          Compared GIS-AHP and machine learning approaches to assess
+          and map flood-risk zones in Kurigram District, Bangladesh.
+        </p>
+
+        <p>
           <span class="tag">GIS</span>
           <span class="tag">AHP</span>
-          <span class="tag">Machine Learning</span>
-        </div>
+          <span class="tag">Random Forest</span>
+          <span class="tag">Decision Tree</span>
+          <span class="tag">SVM</span>
+        </p>
 
-        <div class="card">
-          <h3>Groundwater Potential Assessment</h3>
-          <p class="meta">April 2025 – November 2025</p>
-          <p>
-            Applied GIS and AHP-based spatial modelling to assess
-            groundwater potential using hydrogeological and
-            environmental factors.
-          </p>
+        <img
+          class="research-map"
+          src="images/flood-risk-map.png"
+          alt="Flood Risk Index maps produced using AHP, Random Forest, Decision Tree and SVM">
+
+        <p class="map-caption">
+          Flood Risk Index maps comparing AHP and machine-learning models.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Groundwater Potential Assessment</h3>
+        <p class="meta">April 2025 – November 2025</p>
+
+        <p>
+          Applied GIS and AHP-based spatial modelling to assess
+          groundwater potential using hydrogeological and environmental
+          factors in Kishoreganj District, Bangladesh.
+        </p>
+
+        <p>
           <span class="tag">Hydrogeology</span>
           <span class="tag">GIS-AHP</span>
-        </div>
+          <span class="tag">Groundwater</span>
+        </p>
 
-        <div class="card">
-          <h3>Urbanization and LULC Change</h3>
-          <p class="meta">April 2024 – January 2025</p>
-          <p>
-            Investigated urbanization and land-use/land-cover changes
-            in Kishoreganj Sadar Upazila, Bangladesh, during 2014–2024.
-          </p>
+        <img
+          class="research-map"
+          src="images/groundwater-potential.png"
+          alt="Groundwater Potential Zones map of Kishoreganj District">
+
+        <p class="map-caption">
+          GIS-AHP-based groundwater potential zones in Kishoreganj District.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Urbanization and LULC Change</h3>
+        <p class="meta">April 2024 – January 2025</p>
+
+        <p>
+          Investigated urbanization and land-use/land-cover changes
+          in Kishoreganj Sadar Upazila, Bangladesh, during 2014–2024.
+        </p>
+
+        <p>
           <span class="tag">Remote Sensing</span>
           <span class="tag">LULC</span>
-        </div>
+          <span class="tag">Change Detection</span>
+        </p>
 
-        <div class="card">
-          <h3>Environmental Quality Assessment</h3>
-          <p class="meta">July 2023 – February 2024</p>
-          <p>
-            Conducted GIS-based environmental quality assessment
-            associated with air pollution in Sylhet Commercial Zone.
-          </p>
-          <span class="tag">Environmental GIS</span>
-          <span class="tag">Spatial Analysis</span>
-        </div>
+        <img
+          class="research-map"
+          src="images/lulc-kishoreganj.png"
+          alt="Land Use and Land Cover classification maps for 2014 and 2024">
+
+        <p class="map-caption">
+          Land Use/Land Cover classification for 2014 and 2024.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Environmental Quality Assessment</h3>
+        <p class="meta">July 2023 – February 2024</p>
+
+        <p>
+          Conducted GIS-based environmental quality assessment
+          associated with air pollution in Sylhet Commercial Zone.
+        </p>
+
+        <span class="tag">Environmental GIS</span>
+        <span class="tag">Spatial Analysis</span>
       </div>
     </div>
 
     <!-- CONFERENCES -->
+
     <div id="conferences" class="subsection">
       <h3>Conference Presentations</h3>
 
       <div class="card">
         <h3>Groundwater Modelling and More 2026</h3>
         <p>Princeton University, USA · June 2026</p>
+
         <p>
           Groundwater Potential Assessment in the Intensive Agricultural
           Zones of Kishoreganj District, Bangladesh Using GIS and AHP.
         </p>
+
         <span class="tag">Poster Presentation</span>
       </div>
 
@@ -405,7 +719,9 @@ footer a { color: white; }
           International Conference on the Role of Science and Technology
           towards 4IR
         </h3>
+
         <p>University of Rajshahi, Bangladesh · October 2023</p>
+
         <ul>
           <li>
             Public Health Appearance through GIS Techniques: A Case Study
@@ -426,6 +742,7 @@ footer a { color: white; }
 </section>
 
 <!-- WORK EXPERIENCE -->
+
 <section id="work">
   <div class="container">
     <h2>Work Experience</h2>
@@ -434,6 +751,7 @@ footer a { color: white; }
       <h3>Lecturer in Geography</h3>
       <p>Kishoreganj City College, Bangladesh</p>
       <p class="meta">May 2024 – December 2025</p>
+
       <p>
         Delivered courses in Physical and Human Geography, emphasizing
         environmental sustainability, GIS, spatial analysis and
@@ -445,6 +763,7 @@ footer a { color: white; }
       <h3>Research Assistant</h3>
       <p>University Research Center, SUST</p>
       <p class="meta">July 2020 – June 2023</p>
+
       <ul>
         <li>
           Climate Migration and Land Use Transformation of the
@@ -455,6 +774,7 @@ footer a { color: white; }
           of Bangladesh (Sonadia Islands) — July 2020–June 2021.
         </li>
       </ul>
+
       <p>
         Contributed to spatial analysis, remote sensing, survey-data
         integration, ecological vulnerability assessment and mapping.
@@ -464,9 +784,11 @@ footer a { color: white; }
 </section>
 
 <!-- TECHNICAL SKILLS -->
+
 <section id="skills">
   <div class="container">
     <h2>Technical Skills</h2>
+
     <div class="card">
       <p><strong>GIS &amp; Remote Sensing</strong></p>
       <span class="tag">ArcGIS Pro</span>
@@ -487,6 +809,7 @@ footer a { color: white; }
 </section>
 
 <!-- TRAINING -->
+
 <section id="training">
   <div class="container">
     <h2>Training &amp; Certifications</h2>
@@ -498,7 +821,9 @@ footer a { color: white; }
 
     <div class="card">
       <h3>Fecal Sludge Management in Cities</h3>
-      <p>Department of Civil and Environmental Engineering, SUST · 2022</p>
+      <p>
+        Department of Civil and Environmental Engineering, SUST · 2022
+      </p>
     </div>
 
     <div class="card">
@@ -509,6 +834,7 @@ footer a { color: white; }
 </section>
 
 <!-- LEADERSHIP -->
+
 <section id="leadership">
   <div class="container">
     <h2>Leadership &amp; Organizational Activities</h2>
@@ -530,35 +856,42 @@ footer a { color: white; }
   </div>
 </section>
 
-<!-- CV AND CONTACT -->
+<!-- CONTACT -->
+
 <section id="contact">
   <div class="container">
     <h2>Academic CV &amp; Contact</h2>
+
     <div class="card">
       <h3>Pranta Bhowmik</h3>
       <p>Aachen, North Rhine-Westphalia, Germany</p>
+
       <p>
         Email:
         <a href="mailto:prantabhowmik93@gmail.com">
           prantabhowmik93@gmail.com
         </a>
       </p>
+
       <p>
         LinkedIn:
         <a href="https://www.linkedin.com/in/pranta-bhowmik-73718b201"
-           target="_blank" rel="noopener">View LinkedIn Profile ↗</a>
+           target="_blank" rel="noopener">
+          View LinkedIn Profile ↗
+        </a>
       </p>
+
       <div class="buttons">
-        <a class="btn primary" href="CV_Pranta_Bhowmik.pdf" target="_blank">
+        <a class="btn primary"
+           href="CV_Pranta_Bhowmik.pdf"
+           target="_blank" rel="noopener">
           Download Academic CV
         </a>
       </div>
-      <p class="meta">
-        Add your Google Scholar and ORCID links here when available.
-      </p>
     </div>
   </div>
 </section>
+
 </main>
 
 <footer>
@@ -566,7 +899,9 @@ footer a { color: white; }
     © 2026 Pranta Bhowmik · Academic &amp; Research Portfolio
   </div>
 </footer>
+
 </body>
 </html>
+
 
 
